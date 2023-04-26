@@ -1,5 +1,8 @@
 # sql_practice
-A collection of SQL query
+A collection of SQL query from websites below.
+
+[sql-practice] (https://www.sql-practice.com/)
+[sql-zoo] (https://sqlzoo.net/wiki/SQL_Tutorial)
 
 1. Based on cities where our patient lives in, write a query to display the list of unique city starting with a vowel (a, e, i, o, u). Show the result order in ascending by city.
 
