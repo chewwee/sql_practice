@@ -1,8 +1,15 @@
 # sql_practice
 A collection of SQL query from websites below.
 
-[sql-practice] (https://www.sql-practice.com/)
-[sql-zoo] (https://sqlzoo.net/wiki/SQL_Tutorial)
+- [sql-practice](https://www.sql-practice.com/)
+
+  SQL Practice consists of 2 databases: 
+  1. hospital.db 
+  2. northwind.db
+
+- [sql-zoo](https://sqlzoo.net/wiki/SQL_Tutorial)
+
+### SQL Practice (Hospital.db)
 
 1. Based on cities where our patient lives in, write a query to display the list of unique city starting with a vowel (a, e, i, o, u). Show the result order in ascending by city.
 
@@ -543,6 +550,7 @@ FROM
 ORDER BY 
   CASE WHEN province_name = 'Ontario' THEN 1 ELSE 2 END;
 ```
+### SQL Practice (Northwind.db)
 
 1. Show the category_name and description from the categories table sorted by category_name.
 ```sql
