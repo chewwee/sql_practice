@@ -3,11 +3,11 @@
 1. Show the population of 'Germany'
 ```sql
 SELECT 
-	population 
+  population 
 FROM 
-	world
+  world
 WHERE 
-	name = 'Germany';
+  name = 'Germany';
 ```
 2. Show the name and the population for 'Sweden', 'Norway' and 'Denmark'
 ```sql
