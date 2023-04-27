@@ -367,7 +367,7 @@ FROM
   JOIN doctors ON doctors.doctor_id = admissions.attending_doctor_id;
   ```
 23. display the number of duplicate patients based on their first_name and last_name.
-  ```sql
+```sql
 SELECT 
   first_name, 
   last_name, 
@@ -483,7 +483,7 @@ FROM
 WHERE 
   patient_id % 2 <> 0;
   ```
-  ```SQL
+```SQL
 SELECT 
   CASE WHEN patient_id % 2 = 0 THEN 'Yes' ELSE 'No' end AS has_insurance, 
   SUM(
@@ -651,7 +651,7 @@ ORDER BY
 LIMIT 1;
 ```
 9. Show the average unit price rounded to 2 decimal places, the total units in stock, total discontinued products from the products table.
-  ```SQL
+```SQL
 SELECT 
   ROUND(AVG(unit_price),2) AS average_price, 
   SUM(units_in_stock) AS total_stock, 
