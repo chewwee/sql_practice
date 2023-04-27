@@ -53,13 +53,13 @@ HAVING
 4. Show patient_id and first_name from patients where their first_name start and ends with 's' and is at least 6 characters long.
 ```SQL
 SELECT 
-	patient_id, 
-	first_name 
+  patient_id, 
+  first_name 
 FROM 
-	patients 
+  patients 
 WHERE
-	first_name LIKE "s%s" 
-	AND LEN(first_name)>= 6;
+  first_name LIKE "s%s" 
+  AND LEN(first_name)>= 6;
 ```
 5. Show patient_id, first_name, last_name from patients whos diagnosis is 'Dementia'.
 ```SQL
@@ -197,24 +197,24 @@ ORDER BY
 ```
 14. Show the province_id(s), sum of height; where the total sum of its patient's height is greater than or equal to 7,000.
 ```SQL
- SELECT 
-	 province_id, 
-	 SUM(height) 
+SELECT 
+  province_id, 
+  SUM(height) 
 FROM 
-	 patients 
+  patients 
 GROUP BY 
-	province_id 
+  province_id 
 HAVING 
-	SUM(height) >= 7000;
+  SUM(height) >= 7000;
 ```
 15. Show the difference between the largest weight and smallest weight for patients with the last name 'Maroni'
 ```SQL
 SELECT
-	MAX(weight)- MIN(weight) 
+  MAX(weight)- MIN(weight) 
 FROM 
-	patients 
+  patients 
 WHERE
-	last_name = 'Maroni';
+  last_name = 'Maroni';
 ```
 16. Show all of the days of the month (1-31) and how many admission_dates occurred on that day. Sort by the day with most admissions to least admissions.
 ```sql
@@ -315,28 +315,28 @@ GROUP BY
 ```
 21. Display the total amount of patients for each province. Order by descending.
 ```SQL
- SELECT
-	pn.province_name, 
-	COUNT(patient_id) AS PatientCount 
+SELECT
+  pn.province_name, 
+  COUNT(patient_id) AS PatientCount 
 FROM 
-	province_names pn 
-	JOIN patients p ON p.province_id = pn.province_id 
+  province_names pn 
+  JOIN patients p ON p.province_id = pn.province_id 
 GROUP BY 
-	pn.province_id 
+  pn.province_id 
 ORDER BY 
-	PatientCount DESC;
+  PatientCount DESC;
 ```
 ```SQL
- SELECT 
-	province_name, 
-	COUNT(*) AS patient_count 
+SELECT 
+  province_name, 
+  COUNT(*) AS patient_count 
 FROM 
-	patients pa 
-	JOIN province_names pr ON pr.province_id = pa.province_id 
+  patients pa 
+  JOIN province_names pr ON pr.province_id = pa.province_id 
 GROUP BY 
-	pr.province_id 
+  pr.province_id 
 ORDER BY 
-	patient_count DESC;
+  patient_count DESC;
 ```
 22. For every admission, display the patient's full name, their admission diagnosis, and their doctor's full name who diagnosed their problem.
 ```SQL
@@ -353,8 +353,8 @@ WHERE
   AND a.attending_doctor_id = d.doctor_id;
 ```
 ```sql
- SELECT 
-	 CONCAT(
+SELECT 
+  CONCAT(
     patients.first_name, ' ', patients.last_name
   ) AS patient_name, 
   diagnosis, 
@@ -369,16 +369,16 @@ FROM
 23. display the number of duplicate patients based on their first_name and last_name.
   ```sql
 SELECT 
-	first_name, 
-	last_name, 
-	COUNT(*) AS num_of_duplicates 
+  first_name, 
+  last_name, 
+  COUNT(*) AS num_of_duplicates 
 FROM 
-	patients 
+  patients 
 GROUP BY 
-	first_name, 
-	last_name 
+  first_name, 
+  last_name 
 HAVING 
-	num_of_duplicates > 1;
+  num_of_duplicates > 1;
 ```
 24. Display patient's full name,height in the units feet rounded to 1 decimal,
 weight in the unit pounds rounded to 0 decimals, birth_date, gender non abbreviated.
@@ -428,14 +428,20 @@ FROM
 27. Show patient_id, first_name, last_name, and attending doctor's specialty.
 Show only the patients who has a diagnosis as 'Epilepsy' and the doctor's first name is 'Lisa'
 ```SQL
-SELECT p.patient_id, p.first_name, p.last_name, d.specialty
-FROM patients p,
-admissions a,
-doctors d
-WHERE p.patient_id = a.patient_id 
-AND a.attending_doctor_id = d.doctor_id
-AND a.diagnosis = 'Epilepsy'
-AND d.first_name = 'Lisa';
+SELECT 
+  p.patient_id, 
+  p.first_name, 
+  p.last_name, 
+  d.specialty
+FROM 
+  patients p,
+  admissions a,
+  doctors d
+WHERE 
+  p.patient_id = a.patient_id 
+  AND a.attending_doctor_id = d.doctor_id
+  AND a.diagnosis = 'Epilepsy'
+  AND d.first_name = 'Lisa';
 ```
 28. All patients who have gone through admissions, can see their medical documents on our site. Those patients are given a temporary password after their first admission. Show the patient_id and temp_password.
 
@@ -478,7 +484,7 @@ WHERE
   patient_id % 2 <> 0;
   ```
   ```SQL
-  SELECT 
+SELECT 
   CASE WHEN patient_id % 2 = 0 THEN 'Yes' ELSE 'No' end AS has_insurance, 
   SUM(
     CASE WHEN patient_id % 2 = 0 THEN 10 ELSE 50 END
@@ -601,11 +607,11 @@ WHERE
 5. Show all the even numbered Order_id from the orders table
 ```SQL
 SELECT 
-	order_id 
+  order_id 
 FROM
-	orders 
+  orders 
 WHERE 
-	order_id % 2 = 0;
+  order_id % 2 = 0;
 ```
   
 6. Show the city, company_name, contact_name of all customers from cities which contains the letter 'L' in the city name, sorted by contact_name
@@ -624,32 +630,32 @@ ORDER BY
 7. Show the company_name, contact_name, fax number of all customers that has a fax number. (not null)
 ```SQL
 SELECT 
-	company_name, 
-	contact_name, 
-	fax 
+  company_name, 
+  contact_name, 
+  fax 
 FROM 
-	customers 
+  customers 
 WHERE 
-	fax IS NOT NULL;
+  fax IS NOT NULL;
 ```
 8. Show the first_name, last_name of the most recently hired employee.
 ```SQL
 SELECT 
-	first_name, 
-	last_name, 
-	hire_date 
+  first_name, 
+  last_name, 
+  hire_date 
 FROM 
-	employees 
+  employees 
 ORDER BY 
-	hire_date DESC 
+  hire_date DESC 
 LIMIT 1;
 ```
 9. Show the average unit price rounded to 2 decimal places, the total units in stock, total discontinued products from the products table.
   ```SQL
 SELECT 
-	ROUND(AVG(unit_price),2) AS average_price, 
-	SUM(units_in_stock) AS total_stock, 
-	SUM(discontinued = 1) AS total_discontinued 
+  ROUND(AVG(unit_price),2) AS average_price, 
+  SUM(units_in_stock) AS total_stock, 
+  SUM(discontinued = 1) AS total_discontinued 
 FROM
   products;
 ```
